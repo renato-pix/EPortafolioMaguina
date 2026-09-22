@@ -5,56 +5,42 @@
 --%>
 
 <%@ page contentType="text/html;charset=UTF-8" %>
-
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Sobre mí - Mi E-Portafolio</title>
-
+    <title>Mi E-Portafolio | Sobre Mí</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
 </head>
-
 <body>
 
     <header>
-        <h1>Sobre mí</h1>
-        <p>Conoce un poco más sobre mi formación</p>
+        <h1 data-text="Sobre Mí">Sobre Mí</h1>
+        <p>Mi Trayectoria y Objetivos Profesionales</p>
     </header>
 
     <nav>
         <a href="index.jsp">Inicio</a>
-        <a href="sobre-mi.jsp">Sobre mí</a>
+        <a href="sobre-mi.jsp" class="active">Sobre mí</a>
         <a href="habilidades.jsp">Habilidades</a>
         <a href="proyectos.jsp">Proyectos</a>
         <a href="contacto.jsp">Contacto</a>
     </nav>
 
-    <main>
-
-        <section>
-            <h2>Sobre mí</h2>
-
+    <main class="contenedor-principal" style="max-width: 900px;">
+        <section class="card-presentacion" style="text-align: left;">
+            <h2 data-text="¿Quién soy?" style="text-align: center;">¿Quién soy?</h2>
             <p>
-                Soy estudiante de Diseño y Programación Web
-                del IESTP AACD.
+                Soy un estudiante apasionado por el <strong>Diseño y Programación Web</strong>. A lo largo de mi formación académica, he desarrollado competencias clave para transformar ideas complejas en soluciones digitales funcionales, interactivas y visualmente atractivas.
             </p>
-
             <p>
-                Me interesa aprender y desarrollar aplicaciones
-                y sitios web utilizando diferentes tecnologías.
+                Mi enfoque técnico se centra en el desarrollo de arquitecturas robustas empleando tecnologías Java Web (Servlets, JSP, JDBC) y la creación de interfaces de usuario modernas utilizando estándares como HTML5, CSS3 y JavaScript.
             </p>
-
             <p>
-                Actualmente estoy fortaleciendo mis conocimientos
-                en programación, desarrollo web, bases de datos
-                y herramientas de desarrollo.
+                <strong>Mi Visión:</strong> Seguir expandiendo mis conocimientos en patrones de diseño como MVC, virtualización con Docker y arquitecturas en la nube, con el fin de aportar valor en proyectos de desarrollo de software innovadores.
             </p>
         </section>
-
     </main>
 
     <footer>
@@ -62,5 +48,4 @@
     </footer>
 
 </body>
-
 </html>

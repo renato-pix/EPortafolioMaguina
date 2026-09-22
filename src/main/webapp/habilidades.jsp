@@ -1,54 +1,61 @@
-<%-- 
-    Document   : habilidades.jsp
-    Created on : 15 set. 2026, 12:10:41 p. m.
-    Author     : PC_20
---%>
-
 <%@ page contentType="text/html;charset=UTF-8" %>
-
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Habilidades - Mi E-Portafolio</title>
-
+    <title>Mi E-Portafolio | Habilidades</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
 </head>
-
 <body>
 
     <header>
-        <h1>Mis habilidades</h1>
-        <p>Conocimientos y tecnologías</p>
+        <h1 data-text="Mis Habilidades">Mis Habilidades</h1>
+        <p>Competencias Técnicas y Tecnologías</p>
     </header>
 
     <nav>
         <a href="index.jsp">Inicio</a>
         <a href="sobre-mi.jsp">Sobre mí</a>
-        <a href="habilidades.jsp">Habilidades</a>
+        <a href="habilidades.jsp" class="active">Habilidades</a>
         <a href="proyectos.jsp">Proyectos</a>
         <a href="contacto.jsp">Contacto</a>
     </nav>
 
-    <main>
+    <main style="padding: 40px 20px; max-width: 1200px; margin: 0 auto; flex: 1;">
+        <div class="grid-semanas">
+            
+            <div class="card-semana">
+                <h3 data-text="Frontend Dev">Frontend Dev</h3>
+                <p>Maquetación semántica y diseño adaptativo con HTML5, CSS3 avanzado y animaciones interactivas.</p>
+            </div>
 
-        <section>
-            <h2>Habilidades</h2>
+            <div class="card-semana">
+                <h3 data-text="JavaScript">JavaScript</h3>
+                <p>Manipulación dinámica del DOM, validación de formularios en el cliente e interactividad nativa.</p>
+            </div>
 
-            <p>• HTML</p>
-            <p>• CSS</p>
-            <p>• JavaScript</p>
-            <p>• Java</p>
-            <p>• JSP</p>
-            <p>• Dart</p>
-            <p>• Flutter</p>
-            <p>• MySQL</p>
-            <p>• Git y GitHub</p>
-        </section>
+            <div class="card-semana">
+                <h3 data-text="Java Web">Java Web</h3>
+                <p>Construcción de aplicaciones dinámicas utilizando Servlets, páginas JSP y arquitectura MVC.</p>
+            </div>
 
+            <div class="card-semana">
+                <h3 data-text="Bases de Datos">Bases de Datos</h3>
+                <p>Modelado Entidad-Relación, gestión de persistencia con MySQL y conectividad mediante JDBC.</p>
+            </div>
+
+            <div class="card-semana">
+                <h3 data-text="Herramientas">Herramientas</h3>
+                <p>Control de versiones con Git, repositorios en GitHub y entorno de desarrollo integrado NetBeans.</p>
+            </div>
+
+            <div class="card-semana">
+                <h3 data-text="Despliegue">Despliegue & DevOps</h3>
+                <p>Empaquetado de aplicaciones en archivos WAR, contenedorización con Docker y despliegue continuo en Render.</p>
+            </div>
+
+        </div>
     </main>
 
     <footer>
@@ -56,5 +63,4 @@
     </footer>
 
 </body>
-
 </html>

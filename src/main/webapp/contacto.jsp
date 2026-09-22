@@ -1,22 +1,17 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
-
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Contacto - Mi E-Portafolio</title>
-
+    <title>Mi E-Portafolio | Contacto</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
 </head>
-
 <body>
 
     <header>
-        <h1>Contacto</h1>
-        <p>¿Quieres comunicarte conmigo?</p>
+        <h1 data-text="Contacto">Contacto</h1>
+        <p>¿Tienes un proyecto en mente? ¡Hablemos!</p>
     </header>
 
     <nav>
@@ -24,38 +19,20 @@
         <a href="sobre-mi.jsp">Sobre mí</a>
         <a href="habilidades.jsp">Habilidades</a>
         <a href="proyectos.jsp">Proyectos</a>
-        <a href="contacto.jsp">Contacto</a>
+        <a href="contacto.jsp" class="active">Contacto</a>
     </nav>
 
-    <main>
-
-        <section>
-            <h2>Contáctame</h2>
-
-            <p>
-                Puedes encontrarme a través de los siguientes
-                medios de contacto:
-            </p>
-
-            <br>
-
-            <p>
-                <strong>Correo:</strong>
-                tu-correo@ejemplo.com
-            </p>
-
-            <p>
-                <strong>GitHub:</strong>
-                Próximamente
-            </p>
-
-            <p>
-                <strong>Ubicación:</strong>
-                Perú
-            </p>
-
+    <main class="contenedor-principal" style="max-width: 600px;">
+        <section class="card-presentacion">
+            <h2 data-text="Canales de Comunicación">Canales de Comunicación</h2>
+            <p style="margin-bottom: 25px;">Puedes contactarme a través de mis redes profesionales o correo electrónico:</p>
+            
+            <div style="text-align: left; margin: 0 auto; max-width: 400px; line-height: 2;">
+                <p>📧 <strong>Correo:</strong> <a href="mailto:tu_correo@example.com" style="color: #a29bfe; text-decoration: none;">tu_correo@example.com</a></p>
+                <p>💼 <strong>LinkedIn:</strong> <a href="https://linkedin.com" target="_blank" style="color: #a29bfe; text-decoration: none;">://linkedin.com</a></p>
+                <p>💻 <strong>GitHub:</strong> <a href="https://github.com" target="_blank" style="color: #a29bfe; text-decoration: none;">://github.com</a></p>
+            </div>
         </section>
-
     </main>
 
     <footer>
@@ -63,5 +40,4 @@
     </footer>
 
 </body>
-
 </html>
