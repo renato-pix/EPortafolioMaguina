@@ -1,17 +1,19 @@
+FROM maven:3.9.11-eclipse-temurin-17 AS build
 
-# Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-# Click nbfs://nbhost/SystemFileSystem/Templates/Other/Dockerfile to edit this template
+WORKDIR /app
+
+COPY pom.xml .
+
+COPY src ./src
+
+RUN mvn clean package -DskipTests
 
 FROM tomcat:10.1-jdk17-temurin
 
-# Eliminar las aplicaciones por defecto de Tomcat
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Copiar el WAR generado
-COPY target/*.war /usr/local/tomcat/webapps/ROOT.war
+COPY --from=build /app/target/*.war /usr/local/tomcat/webapps/ROOT.war
 
-# Puerto de Tomcat
 EXPOSE 8080
 
-# Iniciar Tomcat
 CMD ["catalina.sh", "run"]
