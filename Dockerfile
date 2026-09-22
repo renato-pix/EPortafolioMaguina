@@ -7,8 +7,11 @@ FROM tomcat:10.1-jdk17-temurin
 # Eliminar las aplicaciones por defecto de Tomcat
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Copiar el WAR generado por Maven
+# Copiar el WAR generado
 COPY target/*.war /usr/local/tomcat/webapps/ROOT.war
 
 # Puerto de Tomcat
 EXPOSE 8080
+
+# Iniciar Tomcat
+CMD ["catalina.sh", "run"]
