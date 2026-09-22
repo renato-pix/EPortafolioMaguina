@@ -7,6 +7,7 @@
     <title>Mi E-Portafolio | Inicio</title>
     <!-- Ruta dinámica protegida para Render -->
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
+    <link rel="stylesheet" href="https://cloudflare.com">
 </head>
 <body>
 
@@ -16,11 +17,11 @@
     </header>
 
     <nav>
-        <a href="index.jsp" class="active">Inicio</a>
-        <a href="sobre-mi.jsp">Sobre mí</a>
-        <a href="habilidades.jsp">Habilidades</a>
-        <a href="proyectos.jsp">Proyectos</a>
-        <a href="contacto.jsp">Contacto</a>
+        <a href="index.jsp" class="active"><i class="fa-solid fa-house"></i> Inicio</a>
+        <a href="sobre-mi.jsp"><i class="fa-solid fa-user"></i> Sobre mí</a>
+        <a href="habilidades.jsp"><i class="fa-solid fa-code"></i> Habilidades</a>
+        <a href="proyectos.jsp"><i class="fa-solid fa-folder-open"></i> Proyectos</a>
+        <a href="contacto.jsp"><i class="fa-solid fa-envelope"></i> Contacto</a>
     </nav>
 
     <main class="contenedor-principal">
