@@ -1,362 +1,100 @@
-/* ========================================
-   CONFIGURACIÓN GENERAL
-======================================== */
+/* ==========================================================================
+   SECCIÓN DE LAS 16 SEMANAS (ESTILO GLITCH SUAVE)
+   ========================================================================== */
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+:root {
+    --glitch-base: rgba(255, 255, 255, 0.05);
+    --glitch-border: rgba(162, 155, 254, 0.15); /* Lavanda muy sutil */
+    --glitch-glow: rgba(108, 92, 231, 0.1);
+    --color-ch1: #b2bec3; /* Gris pastel desaturado */
+    --color-ch2: #a29bfe; /* Lila pastel desaturado */
 }
 
-html {
-    scroll-behavior: smooth;
+/* Contenedor principal que agrupa las tarjetas */
+.grid-semanas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    padding: 25px 0;
+    width: 100%;
 }
 
-body {
-    font-family: Arial, sans-serif;
-
-    min-height: 100vh;
-
-    color: white;
-
-    background: #050816;
-
-    overflow-x: hidden;
-
+/* Tarjeta Base Individual */
+.card-semana {
     position: relative;
-}
-
-
-/* ========================================
-   FONDO ABSTRACTO ANIMADO
-======================================== */
-
-body::before {
-
-    content: "";
-
-    position: fixed;
-
-    width: 650px;
-    height: 650px;
-
-    top: -220px;
-    left: -180px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(0, 183, 255, 0.45),
-            rgba(0, 100, 255, 0.18),
-            transparent 70%
-        );
-
-    filter: blur(50px);
-
-    animation:
-        movimientoAzul 12s ease-in-out infinite alternate;
-
-    z-index: -2;
-}
-
-
-body::after {
-
-    content: "";
-
-    position: fixed;
-
-    width: 700px;
-    height: 700px;
-
-    right: -250px;
-    bottom: -300px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(150, 40, 255, 0.45),
-            rgba(255, 0, 170, 0.15),
-            transparent 70%
-        );
-
-    filter: blur(60px);
-
-    animation:
-        movimientoMorado 15s ease-in-out infinite alternate;
-
-    z-index: -2;
-}
-
-
-/* ========================================
-   ANIMACIÓN DEL DEGRADADO AZUL
-======================================== */
-
-@keyframes movimientoAzul {
-
-    0% {
-        transform:
-            translate(0, 0)
-            scale(1);
-    }
-
-    50% {
-        transform:
-            translate(250px, 150px)
-            scale(1.2);
-    }
-
-    100% {
-        transform:
-            translate(100px, 350px)
-            scale(1);
-    }
-}
-
-
-/* ========================================
-   ANIMACIÓN DEL DEGRADADO MORADO
-======================================== */
-
-@keyframes movimientoMorado {
-
-    0% {
-        transform:
-            translate(0, 0)
-            scale(1);
-    }
-
-    50% {
-        transform:
-            translate(-250px, -150px)
-            scale(1.2);
-    }
-
-    100% {
-        transform:
-            translate(-100px, -300px)
-            scale(1);
-    }
-}
-
-
-/* ========================================
-   ENCABEZADO
-======================================== */
-
-header {
-
+    background: var(--glitch-base);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--glitch-border);
+    border-radius: 10px;
+    padding: 20px;
     text-align: center;
-
-    padding: 70px 20px;
-
-    background:
-        rgba(0, 0, 0, 0.25);
-
-    backdrop-filter: blur(12px);
-
-    border-bottom:
-        1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
 }
 
+/* Animación sutil de elevación y brillo al pasar el mouse */
+.card-semana:hover {
+    transform: translateY(-3px);
+    border-color: rgba(162, 155, 254, 0.4);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 6px 15px var(--glitch-glow);
+}
 
-header h1 {
-
-    font-size: 45px;
-
+/* Título de la Semana */
+.card-semana h3 {
+    position: relative;
+    color: #ffffff;
+    font-size: 1.35rem;
     margin-bottom: 10px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #00c6ff,
-            #7b2cff,
-            #ff2da1
-        );
-
-    -webkit-background-clip: text;
-
-    -webkit-text-fill-color: transparent;
+    font-weight: 600;
 }
 
-
-header p {
-
-    font-size: 18px;
-
-    color: #d5d5d5;
+/* Descripción de la semana */
+.card-semana p {
+    color: #cccccc;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 0;
 }
 
-
-/* ========================================
-   MENÚ DE NAVEGACIÓN
-======================================== */
-
-nav {
-
-    text-align: center;
-
-    padding: 18px;
-
-    background:
-        rgba(5, 8, 22, 0.75);
-
-    backdrop-filter: blur(15px);
-
-    border-bottom:
-        1px solid rgba(255, 255, 255, 0.1);
-
-    position: sticky;
-
+/* Efecto glitch de texto controlado en Hover */
+.card-semana:hover h3::before,
+.card-semana:hover h3::after {
+    content: attr(data-text);
+    position: absolute;
     top: 0;
-
-    z-index: 10;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
 }
 
-
-nav a {
-
-    color: white;
-
-    text-decoration: none;
-
-    margin: 0 15px;
-
-    font-weight: bold;
-
-    transition: 0.3s;
+.card-semana:hover h3::before {
+    left: -1px;
+    text-shadow: 1px 0 var(--color-ch1);
+    clip-path: inset(30% 0 60% 0);
+    animation: glitch-suave-1 1.2s infinite linear alternate-reverse;
 }
 
-
-nav a:hover {
-
-    color: #00c6ff;
-
-    text-shadow:
-        0 0 10px #00c6ff;
+.card-semana:hover h3::after {
+    left: 1px;
+    text-shadow: -1px 0 var(--color-ch2);
+    clip-path: inset(55% 0 25% 0);
+    animation: glitch-suave-2 1.6s infinite linear alternate-reverse;
 }
 
-
-/* ========================================
-   CONTENIDO PRINCIPAL
-======================================== */
-
-main {
-
-    max-width: 1000px;
-
-    margin: 70px auto;
-
-    padding: 0 20px;
+/* Animaciones optimizadas para evitar saltos bruscos o molestos */
+@keyframes glitch-suave-1 {
+    0% { clip-path: inset(15% 0 55% 0); }
+    30% { clip-path: inset(70% 0 15% 0); }
+    60% { clip-path: inset(40% 0 45% 0); }
+    100% { clip-path: inset(25% 0 65% 0); }
 }
 
-
-/* ========================================
-   TARJETA DE PRESENTACIÓN
-======================================== */
-
-section {
-
-    background:
-        rgba(255, 255, 255, 0.08);
-
-    backdrop-filter: blur(20px);
-
-    padding: 45px;
-
-    border-radius: 20px;
-
-    border:
-        1px solid rgba(255, 255, 255, 0.15);
-
-    box-shadow:
-        0 20px 50px rgba(0, 0, 0, 0.45);
-
-    transition: 0.4s;
-}
-
-
-section:hover {
-
-    transform:
-        translateY(-5px);
-
-    box-shadow:
-        0 25px 60px rgba(0, 0, 0, 0.55);
-}
-
-
-section h2 {
-
-    margin-bottom: 20px;
-
-    font-size: 30px;
-
-    color: #00c6ff;
-}
-
-
-section p {
-
-    font-size: 17px;
-
-    line-height: 1.8;
-
-    color: #e0e0e0;
-}
-
-
-/* ========================================
-   PIE DE PÁGINA
-======================================== */
-
-footer {
-
-    text-align: center;
-
-    padding: 25px;
-
-    margin-top: 100px;
-
-    background:
-        rgba(0, 0, 0, 0.4);
-
-    border-top:
-        1px solid rgba(255, 255, 255, 0.1);
-
-    color: #aaa;
-}
-
-
-/* ========================================
-   DISEÑO PARA CELULARES
-======================================== */
-
-@media (max-width: 700px) {
-
-    header h1 {
-        font-size: 32px;
-    }
-
-    nav a {
-
-        display: inline-block;
-
-        margin: 8px;
-    }
-
-    section {
-
-        padding: 30px 20px;
-    }
-
-    section h2 {
-
-        font-size: 25px;
-    }
+@keyframes glitch-suave-2 {
+    0% { clip-path: inset(65% 0 10% 0); }
+    40% { clip-path: inset(20% 0 75% 0); }
+    70% { clip-path: inset(45% 0 35% 0); }
+    100% { clip-path: inset(80% 0 5% 0); }
 }
