@@ -31,6 +31,115 @@ header h1 {
     font-size: 2.5rem;
     color: #ffffff;
 }
+
+.glitch-title {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+    isolation: isolate;
+}
+
+.glitch-title::before,
+.glitch-title::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 1;
+}
+
+.glitch-title::before {
+    color: #ff496c;
+    text-shadow: -1px 0 rgba(255, 73, 108, 0.55);
+    animation: title-glitch-red 6.4s steps(1, end) infinite;
+}
+
+.glitch-title::after {
+    color: #42e8e5;
+    text-shadow: 1px 0 rgba(66, 232, 229, 0.55);
+    animation: title-glitch-cyan 7.1s steps(1, end) infinite;
+}
+
+.glitch-title__text {
+    position: relative;
+    z-index: 0;
+}
+
+.glitch-title__scanlines {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent 4px,
+        rgba(115, 244, 240, 0.2) 5px,
+        transparent 6px
+    );
+    opacity: 0;
+    animation: title-scanline-flicker 5.8s steps(1, end) infinite;
+}
+
+@keyframes title-glitch-red {
+    0%, 91%, 93%, 100% { opacity: 0; transform: translateX(0); clip-path: inset(45% 0 55% 0); }
+    91.2% { opacity: 0.72; transform: translateX(-2px); clip-path: inset(18% 0 70% 0); }
+    91.5% { opacity: 0.62; transform: translateX(2px); clip-path: inset(68% 0 18% 0); }
+    92% { opacity: 0.48; transform: translateX(-1px); clip-path: inset(43% 0 44% 0); }
+}
+
+@keyframes title-glitch-cyan {
+    0%, 87%, 89%, 100% { opacity: 0; transform: translateX(0); clip-path: inset(50% 0 50% 0); }
+    87.2% { opacity: 0.7; transform: translateX(2px); clip-path: inset(62% 0 24% 0); }
+    87.6% { opacity: 0.58; transform: translateX(-2px); clip-path: inset(25% 0 62% 0); }
+    88.2% { opacity: 0.42; transform: translateX(1px); clip-path: inset(46% 0 42% 0); }
+}
+
+@keyframes title-scanline-flicker {
+    0%, 87%, 90%, 100% { opacity: 0; }
+    87.3%, 88.4% { opacity: 0.22; }
+    88%, 89.2% { opacity: 0.08; }
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 360px) {
+    header h1 {
+        font-size: 1.75rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .glitch-title::before,
+    .glitch-title::after,
+    .glitch-title__scanlines {
+        animation: none;
+    }
+
+    .glitch-title::before {
+        opacity: 0.12;
+        transform: translateX(-1px);
+        clip-path: inset(0 68% 0 0);
+    }
+
+    .glitch-title::after {
+        opacity: 0.12;
+        transform: translateX(1px);
+        clip-path: inset(0 0 0 68%);
+    }
+
+    .glitch-title__scanlines {
+        opacity: 0.04;
+    }
+}
+
 header p {
     color: #a29bfe;
     margin: 5px 0 0 0;

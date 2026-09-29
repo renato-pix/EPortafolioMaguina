@@ -1,0 +1,46 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi E-Portafolio | Inicio</title>
+    <!-- Ruta dinámica protegida para Render -->
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
+</head>
+<body>
+
+    <header>
+        <h1 class="glitch-title" data-text="Mi E-Portafolio">
+            <span class="glitch-title__text">Mi E-Portafolio</span>
+            <span class="glitch-title__scanlines" aria-hidden="true"></span>
+        </h1>
+        <p>Diseño y Programación Web</p>
+    </header>
+
+    <nav>
+        <a href="index.jsp" class="active"><i class="fa-solid fa-house"></i> Inicio</a>
+        <a href="sobre-mi.jsp"><i class="fa-solid fa-user"></i> Sobre mí</a>
+        <a href="habilidades.jsp"><i class="fa-solid fa-code"></i> Habilidades</a>
+        <a href="proyectos.jsp"><i class="fa-solid fa-folder-open"></i> Proyectos</a>
+        <a href="contacto.jsp"><i class="fa-solid fa-envelope"></i> Contacto</a>
+    </nav>
+
+    <main class="contenedor-principal">
+        <section class="card-presentacion">
+            <h2 data-text="Bienvenido a mi E-Portafolio">Bienvenido a mi E-Portafolio</h2>
+            <p>
+                Soy estudiante de Diseño y Programación Web. En este e-portafolio 
+                presento mi formación académica, competencias técnicas, proyectos 
+                desarrollados y experiencias clave adquiridas en el diseño e 
+                implementación de aplicaciones web.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Mi E-Portafolio - Todos los derechos reservados</p>
+    </footer>
+
+</body>
+</html>

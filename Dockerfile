@@ -4,6 +4,8 @@ WORKDIR /app
 
 COPY pom.xml .
 
+COPY index.jsp .
+
 COPY src ./src
 
 RUN mvn clean package -DskipTests
